@@ -23,7 +23,7 @@ const showData = () => {
   const card = document.querySelector('#card');
   const profilePicture = document.querySelector('#profile');
   const nameContainer = document.querySelector('#username');
-  const urlContainer = document.querySelector('#url');
+  const urlContainer = document.querySelector('#url a');
   const bioContainer = document.querySelector('#bio');
   const repoContainer = document.querySelector('#repos');
 
@@ -45,6 +45,7 @@ const showData = () => {
     }
 
     urlContainer.innerHTML = `${res.data.html_url}`;
+    urlContainer.href = `${res.data.html_url}`;
 
     if (res.data.bio != null) {
       bioContainer.innerHTML = `${res.data.bio}`;
