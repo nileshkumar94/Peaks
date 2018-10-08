@@ -1,0 +1,129 @@
+@import 'Components/base';
+
+body {
+  background: white;
+}
+
+nav {
+  position: static;
+}
+
+footer {
+  background: white;
+}
+
+main {
+  justify-items: center;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  height: calc(98.5vh - 210px);
+  width: 100vw;
+  text-align: center;
+}
+
+input {
+  @include shadow(1);
+
+  border: 0;
+  padding: 0.8rem 1.8rem;
+  border-radius: 4px;
+  transition: box-shadow 250ms ease-in-out, transform 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    @include shadow(2);
+
+    transform: translateY(-5px);
+  }
+}
+
+.head {
+  margin-bottom: 2rem;
+
+  button {
+    margin-left: 0.5rem;
+  }
+}
+
+.cards {
+  overflow-x: scroll;
+  max-height: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 15%,
+    rgba(255, 255, 255, 0) 85%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  padding: 3rem;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.card {
+  @include shadow(3);
+
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 2fr 1fr;
+  padding: 1rem 2rem;
+  background: $white;
+  align-items: center;
+  position: relative;
+  z-index: -2;
+  margin: 2rem;
+  transition: 1s ease;
+  top: -3rem;
+
+  img {
+    border-radius: 4px;
+    grid-row: 1 / 3;
+    height: 7rem;
+  }
+
+  svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    height: 1.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .overlay {
+    background-color: rgba(white, 0.9);
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  h3,
+  h4,
+  h5 {
+    margin: 1px;
+  }
+}
+
+@media (max-width: 600px) {
+  .head {
+    margin-bottom: 1rem;
+    font-size-adjust: 0.4;
+    line-height: 0.3;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-row-gap: 1rem;
+    justify-items: center;
+
+    img {
+      grid-row: 1 / 2;
+    }
+  }
+}

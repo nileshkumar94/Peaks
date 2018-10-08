@@ -1,0 +1,58 @@
+{% embed 'partials/base.html.twig' %}
+
+    {% block stylesheets %}
+        {% do 
+            assets.addCss('theme://styles/bloodhound.css', {
+                'priority': 100,
+                'loading': 'inline',
+                'type': 'text/css',
+                'rel': 'stylesheet'
+            }) %}
+    {% endblock %}
+
+    {% block content %}
+        <div hidden="hidden">
+            <svg id="check" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
+                <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+            </svg>
+            <svg id="cross" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 352 512">
+                <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+            </svg>
+        </div>
+        <main>
+            <div class="head">
+                <h1>Bloodhound</h1>
+                <h3>Github profile searcher</h3>
+                <div>
+                    <input id="searchName" type="text" placeholder="Username...">
+                    <button id="search" class="button">Search</button>
+                </div>
+            </div>
+            <div class="cards">
+                <article id="card" style="opacity: 0;">
+                    <div class="overlay"></div>
+                    <img src="" id="profile">
+                    <div>
+                        <h3 id="username"></h4>
+                        <h5 id="bio"></h5>
+                        <h5 id="url"></h5>
+                    </div>
+                    <div>
+                        <h4 id="repos"></h4>
+                    </div>
+                </article>
+            </div>
+        </main>
+    {% endblock %}
+
+    {% block script %}
+        {% do 
+            assets.addInlineJs("AOS.init();") %}
+        {% do 
+            assets.addJs('theme://scripts/bloodhound.js', {
+                'priority': 18,
+                'loading': 'inline'
+            }) %}
+    {% endblock %}
+
+{% endembed %}
