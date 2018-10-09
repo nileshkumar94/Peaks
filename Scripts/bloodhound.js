@@ -1,5 +1,3 @@
-var currentCard = 1;
-
 const cards = document.querySelector('.cards');
 const inputValue = document.querySelector('#searchName');
 const searchButton = document.querySelector('#search');
@@ -69,4 +67,11 @@ const showData = () => {
 
 searchButton.addEventListener('click', () => {
   showData();
+});
+
+inputValue.addEventListener("keyup", function (event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    showData();
+  }
 });
