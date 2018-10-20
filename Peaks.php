@@ -1,7 +1,7 @@
 <?php
-namespace Grav\Theme;
+namespace Karuna\Theme;
 
-use Grav\Common\Theme;
+use Karuna\Common\Theme;
 
 class Peaks extends Theme
 {
